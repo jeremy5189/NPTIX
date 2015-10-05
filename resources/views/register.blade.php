@@ -6,6 +6,12 @@
 </div>
 <p class="lead">請填寫正確 Email，報名成功後，請檢查您的信箱收件夾或垃圾信件夾確認報名</p>
 
+@if($errors->any())
+    <div class="alert alert-danger">
+        {{ trans('ui.'.$errors->keys()[0]) }}: {{ $errors->first() }}
+    </div>
+@endif
+
 <form method="post" action="/register">
 
   <div class="form-group">
@@ -25,7 +31,7 @@
 
   <div class="form-group">
     <label for="meal">飲食習慣＊</label>
-    <select class="form-control" required="">
+    <select class="form-control" name="meal" id="meal" required="">
         <option value="葷食">葷食</option>
         <option value="素食">素食</option>
     </select>
@@ -42,7 +48,7 @@
   </div>
 
   <button type="submit" class="btn btn-default submit">送出</button>
-
+  {!! csrf_field() !!}
 </form>
 <p>回到 <a href="＃">活動網站</a> 晚點再報名</p>
 @endsection

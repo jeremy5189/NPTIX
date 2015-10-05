@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Log;
+use Validator;
+use App\Register;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -19,16 +22,6 @@ class RegisterController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -36,7 +29,34 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Log::debug($request->all());
+
+        $validator = Validator::make($request->all(), [
+            'name'  => 'required',
+            'email' => 'required|unique:register',
+            'cell'  => 'required|numeric',
+            'meal'  => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            Log::debug($validator->errors());
+            return redirect()->back()
+                             ->withErrors($validator->errors());
+        }
+
+        // Mass assign defined in Model
+        $reg = Register::create($request->all());
+
+        $reg->token = sha1(uniqid().time());
+        $reg->seat = 'N/A';
+        $msg = trans('ui.fail');
+
+        if($reg->save())
+            $msg = trans('ui.created');
+
+        return redirect()->back()->withErrors([
+            'register' => $msg
+        ]);
     }
 
     /**

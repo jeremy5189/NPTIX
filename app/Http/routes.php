@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/register', 'RegisterController@index');
-Route::post('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@store');
 
 //Route::get('/admin', 'AdminController@index');
 //Route::get('/admin/confirm-payment/{id}', 'AdminController@index');
