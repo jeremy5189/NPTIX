@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Ticket System</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -33,12 +33,17 @@
             .title {
                 font-size: 96px;
             }
+
+            a {
+                color: black;
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">Ticket System<br/><a href="/register">&gt;Register&lt;</a></div>
             </div>
         </div>
     </body>

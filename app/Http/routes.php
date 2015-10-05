@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@index');
+
+//Route::get('/admin', 'AdminController@index');
+//Route::get('/admin/confirm-payment/{id}', 'AdminController@index');
+
+//Route::get('/seat/{token}', 'SeatController@index');
+//Route::post('/seat/{token}', 'SeatController@index');
