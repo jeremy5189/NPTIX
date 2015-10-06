@@ -44,6 +44,7 @@
         margin-bottom: 20px;
     }
     </style>
+    @yield('header')
   </head>
 
   <body>
@@ -90,7 +91,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">{{ trans('ui.footer') }}</p>
+        <p class="text-muted">&copy; 2015 <a href="patricks.tw">Jeremy Yen</a>. All Rights Reserved.</p>
       </div>
     </footer>
 

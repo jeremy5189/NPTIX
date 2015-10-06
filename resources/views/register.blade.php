@@ -55,5 +55,5 @@
   <button type="submit" class="btn btn-default submit">送出</button>
   {!! csrf_field() !!}
 </form>
-<p>回到 <a href="＃">活動網站</a> 晚點再報名</p>
+<p>回到 <a href="#">活動網站</a> 晚點再報名</p>
 @endsection

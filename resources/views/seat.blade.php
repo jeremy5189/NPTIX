@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="page-header">
-  <h1>#{{ $current->id }} {{ $current->name }}您好，請選擇您的座位（目前選擇：{{ $current->seat }}）</h1>
+  <h1>#{{ $current->id }} {{ $current->name }} 您好，請選擇您的座位（目前選擇：{{ $current->seat }}）</h1>
 </div>
 <table class="table table-bordered">
     <tr>

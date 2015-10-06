@@ -55,7 +55,7 @@ class SeatController extends Controller
 
         return view('seat', [
             'token'   => $token,
-            'data'    => Register::where('seat', '!=', 'N/A')->get(),
+            'data'    => Register::where('seat', '!=', '-')->get(),
             'current' => Register::where('token', $token)->first()
         ]);
     }

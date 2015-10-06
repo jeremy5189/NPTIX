@@ -43,7 +43,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Ticket System<br/><a href="/register">&gt;Register&lt;</a></div>
+                <div class="title">Ticket System<br/><a href="/register">Enter</a></div>
             </div>
         </div>
     </body>

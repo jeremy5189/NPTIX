@@ -49,7 +49,7 @@ class RegisterController extends Controller
         $reg = Register::create($request->all());
 
         $reg->token = 'Not Paid';
-        $reg->seat = 'N/A';
+        $reg->seat = '-';
         $msg = trans('ui.fail');
 
         if($reg->save()) {

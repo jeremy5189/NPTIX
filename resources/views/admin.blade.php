@@ -1,14 +1,25 @@
 @extends('master')
 
+@section('header')
+<link rel="stylesheet" href="/css/datatables.min.css">
+<link rel="stylesheet" href="/css/dataTables.tableTools.css">
+<script src="/js/datatables.min.js"></script>
+<script src="/js/dataTables.tableTools.js"></script>
+@endsection
+
 @section('content')
 <div class="page-header">
   <h1>Management</h1>
 </div>
-<table class="table table-striped">
+<table class="table table-striped" id="table">
     <thead>
         <tr>
             <th>#</th>
+
             <th>Name</th>
+            <th>
+                Code
+            </th>
             <th>Email</th>
             <th>Cell</th>
             <th>Unit</th>
@@ -26,6 +37,7 @@
         <tr>
             <td>{{ $row->id }}</td>
             <td>{{ $row->name }}</td>
+            <td>{{ substr($row->cell, -3) }}</td>
             <td>{{ $row->email }}</td>
             <td>{{ $row->cell }}</td>
             <td>{{ $row->unit }}</td>
@@ -39,7 +51,7 @@
                 @else
                     <a href="#" data-href="/admin/confirm/{{ $row->id }}" class="btn btn-xs btn-success confirm">Confirm Payment</a>
                 @endif
-                <a href="/seat/{{ $row->token }}" class="btn btn-xs btn-info">Select Seat</a>
+                <a href="/seat/{{ $row->token }}" class="btn btn-xs btn-info">Seat</a>
                 <a href="#" data-href="/admin/destroy/{{ $row->id }}" class="btn btn-xs btn-danger delete">Delete</a>
             </td>
         </tr>
@@ -48,6 +60,34 @@
 </table>
 <script type="text/javascript">
 $(function(){
+    $('#table').dataTable({
+
+        "tableTools": {
+            "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
+        },
+        bFilter: false,
+        paging: false,
+        "dom": 'RT<"clear">lfrtip',
+        "oTableTools": {
+          "aButtons": [
+            {'sExtends':'copy',
+              "oSelectorOpts": { filter: 'applied', order: 'current' },
+            },
+            {'sExtends':'xls',
+              "oSelectorOpts": { filter: 'applied', order: 'current' },
+            },
+            {'sExtends':'csv',
+              "oSelectorOpts": { filter: 'applied', order: 'current' },
+            },
+            {'sExtends':'print',
+              "oSelectorOpts": { filter: 'applied', order: 'current' },
+            },
+            {'sExtends':'pdf',
+              "oSelectorOpts": { filter: 'applied', order: 'current' },
+            }
+          ]
+        },
+    });
     $('.delete').click(function(){
         var dest = $(this).data('href');
         if( confirm('Do you really want to delete this record?') ) {
