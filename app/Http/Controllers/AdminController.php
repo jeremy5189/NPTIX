@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
+use Log;
+use Session;
 use App\Register;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -9,6 +12,14 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['login_view', 'login', 'logout']]);
+    }
+
+    public function logout() {
+        Session::set('login', 'no');
+        return redirect('/admin/login');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +30,59 @@ class AdminController extends Controller
         return view('admin', [
             'data' => Register::all()
         ]);
+    }
+
+    public function cancel($id) {
+
+        $person = Register::find($id);
+
+        if( $person != null ) {
+            $person->token = 'Not Paid';
+            $person->save();
+        }
+
+        return redirect()->back();
+    }
+
+    public function confirm($id) {
+
+        $person = Register::find($id);
+
+        if( $person != null ) {
+            $person->token = sha1(uniqid().time());
+            $person->save();
+
+            // Send confirm mail
+            Mail::send('emails.select-seat', ['name' => $person->name, 'url' => url() . '/seat/' . $person->token], function ($m) use ($person) {
+                $m->to($person->email, $person->name)->subject(trans('ui.title') . '選位通知');
+            });
+        }
+
+        return redirect()->back();
+    }
+
+    public function login_view() {
+        if( Session::get('login') == 'yes' )
+            return redirect('/admin');
+        return view('login');
+    }
+
+    public function login(Request $req) {
+
+        Log::debug($req->all());
+
+        if( $req->input('username') == env('username') &&
+            $req->input('password') == env('password') ) {
+            Log::debug('login ok');
+            Session::set('login', 'yes');
+        } else {
+            Log::debug('login fail');
+            return redirect()->back()->withError([
+                'login' => 'fail'
+            ]);
+        }
+
+        return redirect('/admin');
     }
 
     /**
@@ -84,6 +148,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Register::destroy($id);
+        return redirect()->back();
     }
 }

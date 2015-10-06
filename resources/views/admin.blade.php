@@ -1,6 +1,9 @@
 @extends('master')
 
 @section('content')
+<div class="page-header">
+  <h1>Management</h1>
+</div>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -32,15 +35,31 @@
             <td>{{ $row->created_at }}</td>
             <td>
                 @if ( $row->token != 'Not Paid' )
-                    <button type="button" class="btn btn-xs btn-warning">Cancel Payment</button>
+                    <a href="/admin/cancel/{{ $row->id }}" class="btn btn-xs btn-warning">Cancel Payment</a>
                 @else
-                    <button type="button" class="btn btn-xs btn-success">Confirm Payment</button>
+                    <a href="#" data-href="/admin/confirm/{{ $row->id }}" class="btn btn-xs btn-success confirm">Confirm Payment</a>
                 @endif
-                <button type="button" class="btn btn-xs btn-info">Select Seat</button>
-                <button type="button" class="btn btn-xs btn-danger">Delete</button>
+                <a href="/seat/{{ $row->token }}" class="btn btn-xs btn-info">Select Seat</a>
+                <a href="#" data-href="/admin/destroy/{{ $row->id }}" class="btn btn-xs btn-danger delete">Delete</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+<script type="text/javascript">
+$(function(){
+    $('.delete').click(function(){
+        var dest = $(this).data('href');
+        if( confirm('Do you really want to delete this record?') ) {
+            location.href = dest;
+        }
+    });
+    $('.confirm').click(function(){
+        var dest = $(this).data('href');
+        if( confirm('This will send a mail to the selected person, do you wish to continue?') ) {
+            location.href = dest;
+        }
+    });
+});
+</script>
 @endsection

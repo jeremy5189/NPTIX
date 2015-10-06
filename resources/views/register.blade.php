@@ -25,6 +25,11 @@
   </div>
 
   <div class="form-group">
+    <label for="email_confirmation">Email Confirmation＊</label>
+    <input type="email" class="form-control" name="email_confirmation" id="email_confirmation" placeholder="Email Confirmation" required="">
+  </div>
+
+  <div class="form-group">
     <label for="email">手機＊</label>
     <input type="text" class="form-control" name="cell" id="cell" placeholder="手機" required="">
   </div>

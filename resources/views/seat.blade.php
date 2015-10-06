@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="page-header">
-  <h1>選擇您的座位</h1>
+  <h1>#{{ $current->id }} {{ $current->name }}您好，請選擇您的座位（目前選擇：{{ $current->seat }}）</h1>
 </div>
 <table class="table table-bordered">
     <tr>
@@ -18,7 +18,7 @@
         <td>
             可以選擇
         </td>
-        <td class="info">
+        <td class="available">
 
         </td>
         <td>
@@ -43,7 +43,7 @@
 // 5 / 1 / 7 / 1 / 5 * 14
 $row_map = [5, 1, 7, 1, 5];
 $row_total = 14;
-$row_class = ['info', 'danger', 'info', 'danger', 'info'];
+$row_class = ['available', 'danger', 'available', 'danger', 'available'];
 ?>
 <table class="table table-bordered seat-table">
 
@@ -61,12 +61,16 @@ $row_class = ['info', 'danger', 'info', 'danger', 'info'];
             @foreach( $row_map as $index => $row_len )
 
                 @for( $j = 0; $j < $row_len; $j++ )
-                    <td class="{{ $row_class[$index] }} seat" id="seat-{{ chr($i+65) . $row_serail }}">
-                        @if ( $row_class[$index] != 'danger' )
-                            {{ chr($i+65) . $row_serail }}
-                            <?php $row_serail++; ?>
-                        @endif
-                    </td>
+
+                    @if ( $row_class[$index] != 'danger' )
+                        <td class="{{ $row_class[$index] }} seat" id="seat-{{ chr($i+65) . $row_serail }}">
+                        {{ chr($i+65) . $row_serail }}
+                        </td>
+                        <?php $row_serail++; ?>
+                    @else
+                        <td class="{{ $row_class[$index] }}"></td>
+                    @endif
+
                 @endfor
 
             @endforeach
@@ -88,7 +92,7 @@ $(function(){
     });
     @if ( $data != null )
         @foreach ( $data as $item )
-            $('#seat-{{ $item->seat }}').removeClass('info').addClass('warning');
+            $('#seat-{{ $item->seat }}').removeClass('available').addClass('warning');
         @endforeach
     @endif
 

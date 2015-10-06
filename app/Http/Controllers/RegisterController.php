@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Log;
+use Mail;
 use Validator;
 use App\Register;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class RegisterController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name'  => 'required',
-            'email' => 'required|unique:register',
+            'email' => 'required|unique:register|confirmed',
             'cell'  => 'required|numeric',
             'meal'  => 'required'
         ]);
@@ -51,8 +52,14 @@ class RegisterController extends Controller
         $reg->seat = 'N/A';
         $msg = trans('ui.fail');
 
-        if($reg->save())
+        if($reg->save()) {
             $msg = trans('ui.created');
+
+            // Send confirm mail
+            Mail::send('emails.confirm', ['user' => $reg], function ($m) use ($reg) {
+                $m->to($reg->email, $reg->name)->subject(trans('ui.title') . '確認信');
+            });
+        }
 
         return redirect()->back()->withErrors([
             'register' => $msg
