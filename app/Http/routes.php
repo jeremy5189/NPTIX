@@ -18,8 +18,9 @@ Route::get('/', function () {
 Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@store');
 
-//Route::get('/admin', 'AdminController@index');
+Route::get('/admin', 'AdminController@index');
 //Route::get('/admin/confirm-payment/{id}', 'AdminController@index');
+//Route::get('/admin/cancel-payment/{id}', 'AdminController@index');
 
-//Route::get('/seat/{token}', 'SeatController@index');
-//Route::post('/seat/{token}', 'SeatController@index');
+Route::get('/seat/{token}', 'SeatController@show');
+Route::get('/seat/{token}/{seat}', 'SeatController@select');

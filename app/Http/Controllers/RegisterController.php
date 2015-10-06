@@ -47,7 +47,7 @@ class RegisterController extends Controller
         // Mass assign defined in Model
         $reg = Register::create($request->all());
 
-        $reg->token = sha1(uniqid().time());
+        $reg->token = 'Not Paid';
         $reg->seat = 'N/A';
         $msg = trans('ui.fail');
 

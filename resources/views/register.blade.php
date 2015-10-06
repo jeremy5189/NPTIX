@@ -7,7 +7,7 @@
 <p class="lead">請填寫正確 Email，報名成功後，請檢查您的信箱收件夾或垃圾信件夾確認報名</p>
 
 @if($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-warning">
         {{ trans('ui.'.$errors->keys()[0]) }}: {{ $errors->first() }}
     </div>
 @endif
