@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use App\Register;
 use Illuminate\Http\Request;
 use App\Http\Requests;
