@@ -17,6 +17,9 @@ class AdminController extends Controller
     }
 
     public function logout() {
+
+        Log::debug('User logout');
+
         Session::set('login', 'no');
         return redirect('/admin/login');
     }
@@ -27,6 +30,8 @@ class AdminController extends Controller
      */
     public function index()
     {
+        Log::debug('Access admin index');
+
         return view('admin', [
             'data' => Register::all()
         ]);
@@ -35,6 +40,9 @@ class AdminController extends Controller
     public function cancel($id) {
 
         $person = Register::find($id);
+
+        Log::debug('Cancel payment: ');
+        Log::debug($person);
 
         if( $person != null ) {
             $person->token = 'Not Paid';
@@ -47,6 +55,9 @@ class AdminController extends Controller
     public function confirm($id) {
 
         $person = Register::find($id);
+
+        Log::debug('Confirm payment: ');
+        Log::debug($person);
 
         if( $person != null ) {
             $person->token = sha1(uniqid().time());
@@ -62,13 +73,18 @@ class AdminController extends Controller
     }
 
     public function login_view() {
+
+        Log::debug('Access login view');
+
         if( Session::get('login') == 'yes' )
             return redirect('/admin');
+
         return view('login');
     }
 
     public function login(Request $req) {
 
+        Log::debug('Attempt to login');
         Log::debug($req->all());
 
         if( $req->input('username') == env('username') &&
@@ -148,6 +164,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
+        Log::debug('Delete record: ' . $id);
         Register::destroy($id);
         return redirect()->back();
     }

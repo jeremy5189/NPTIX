@@ -30,6 +30,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
+        Log::debug('User attempt to register');
         Log::debug($request->all());
 
         $validator = Validator::make($request->all(), [
@@ -53,6 +54,8 @@ class RegisterController extends Controller
         $msg = trans('ui.fail');
 
         if($reg->save()) {
+
+            Log::debug('Prepare to send email');
             $msg = trans('ui.created');
 
             // Send confirm mail
