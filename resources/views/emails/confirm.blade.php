@@ -17,7 +17,7 @@
 電話：{{ $receipt['receipt_phone'] }}<br/>
 傳真：{{ $receipt['receipt_fax'] }}<br/>
 <br/>
-備註：{{ $user->note }}<br/>
+備註：{{ json_decode($user->note) }}<br/>
 <br/>
 報到序號（手機後三碼）：{{ substr($user->cell, -3) }}<br/>
 <br/>
