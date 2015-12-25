@@ -60,7 +60,7 @@ class RegisterController extends Controller
 
             // Send confirm mail
             Mail::send('emails.confirm', ['user' => $reg], function ($m) use ($reg) {
-                $m->to($reg->email, $reg->name)->subject(trans('ui.title') . '確認信');
+                $m->to($reg->email, $reg->name)->subject(trans('ui.title') . ' 確認信');
             });
         }
 
