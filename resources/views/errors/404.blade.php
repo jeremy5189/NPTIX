@@ -2,22 +2,19 @@
 <html>
     <head>
         <title>Not Found</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <meta charset="utf-8">
 
         <style>
             html, body {
                 height: 100%;
-            }
 
+            }
             body {
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                color: #B0BEC5;
                 display: table;
-                font-weight: 100;
-                font-family: 'Lato';
+                font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Jhenghei", sans-serif;
             }
 
             .container {
@@ -32,8 +29,12 @@
             }
 
             .title {
-                font-size: 72px;
-                margin-bottom: 40px;
+                font-size: 96px;
+            }
+
+            a {
+                color: black;
+                text-decoration: none;
             }
         </style>
     </head>

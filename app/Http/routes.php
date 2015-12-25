@@ -26,5 +26,8 @@ Route::get('/admin/confirm/{id}', 'AdminController@confirm');
 Route::get('/admin/cancel/{id}', 'AdminController@cancel');
 Route::get('/admin/destroy/{id}', 'AdminController@destroy');
 
+Route::get('/admin/lock', 'AdminController@lock');
+Route::get('/admin/unlock', 'AdminController@unlock');
+
 Route::get('/seat/{token}', 'SeatController@show');
 Route::get('/seat/{token}/{seat}', 'SeatController@select');

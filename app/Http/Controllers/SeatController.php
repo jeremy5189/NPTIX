@@ -49,14 +49,20 @@ class SeatController extends Controller
      */
     public function show($token)
     {
+        Log::debug($token . ' Access Seat Selection');
+
         if( $token == 'Not Paid') {
             Log::debug('Access seat but not paid');
             abort(403);
         }
 
-        if( Register::where('token', $token)->first() == null ) {
+        $user = Register::where('token', $token)->first();
+        if( $user == null ) {
             Log::debug('Access seat with invalid token: ' . $token);
             abort(404);
+        } else if( $user->lock_seat == 1 ) {
+            Log::debug('Lock seat forbidden');
+            abort(403);
         }
 
         return view('seat', [
@@ -105,7 +111,7 @@ class SeatController extends Controller
         Log::debug('Select seat: ' . $seat . ' with token: ' . $token);
         $person = Register::where('token', $token)->first();
 
-        if ( $person != null ) {
+        if ( $person != null && $person->lock_seat == 0 ) {
 
             if( Register::where('seat', $seat)->first() == null ) {
 
@@ -127,7 +133,12 @@ class SeatController extends Controller
                 return $this->jsAlert('座位 ' . $seat . ' 已經被選走了', $token);
             }
 
-        } else {
+        }
+        else if( $person->lock_seat == 1 ) {
+            Log::debug('Lock seat forbidden');
+            abort(403);
+        }
+        else {
             Log::debug('Token error');
             abort(403);
         }

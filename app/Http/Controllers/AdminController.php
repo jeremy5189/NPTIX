@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Mail;
 use Log;
+use DB;
 use Session;
 use App\Register;
 use Illuminate\Http\Request;
@@ -14,6 +15,22 @@ class AdminController extends Controller
 {
     public function __construct() {
         $this->middleware('auth', ['except' => ['login_view', 'login', 'logout']]);
+    }
+
+    public function lock() {
+        // Lock all seat
+        $affected = DB::table('register')->update(['lock_seat' => 1]);
+        return $this->jsAlert('已鎖定 ' . $affected . ' 位參與者之座位');
+    }
+
+    public function unlock() {
+        // Release all seat
+        $affected = DB::table('register')->update(['lock_seat' => 0]);
+        return $this->jsAlert('已允許 ' . $affected . ' 位參與者自由選位');
+    }
+
+    private function jsAlert($str) {
+        return '<script>alert("'.$str.'");location.href="/admin";</script>';
     }
 
     public function logout() {

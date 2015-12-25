@@ -60,8 +60,9 @@ class RegisterController extends Controller
             'receipt_fax'     => $request->input('receipt_fax')
         ];
 
-        $reg->receipt = json_encode($receipt);
-        $reg->note    = $request->input('note');
+        $reg->receipt   = json_encode($receipt);
+        $reg->note      = json_encode($request->input('note'));
+        $reg->lock_seat = 0;
 
         $msg = trans('ui.fail');
 
