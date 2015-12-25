@@ -1,6 +1,17 @@
 @extends('master')
 
 @section('content')
+<script type="text/javascript">
+$(function(){
+    $('#form').submit(function(event) {
+        if(!confirm('請再次確認報名資料是否正確？')) {
+            return false;
+        }
+        return true;
+    });
+});
+</script>
+
 <div class="page-header">
   <h1>填寫報名資料</h1>
 </div>
@@ -12,7 +23,7 @@
     </div>
 @endif
 
-<form method="post" action="/register">
+<form method="post" action="/register" id="form">
 
   <div class="form-group">
     <label for="name">姓名＊</label>
@@ -25,7 +36,7 @@
   </div>
 
   <div class="form-group">
-    <label for="email_confirmation">Email Confirmation＊</label>
+    <label for="email_confirmation">Email 確認＊</label>
     <input type="email" class="form-control" name="email_confirmation" id="email_confirmation" placeholder="Email Confirmation" required="">
   </div>
 
@@ -52,8 +63,45 @@
     <input type="text" class="form-control" name="title" id="title" placeholder="職稱">
   </div>
 
-  <button type="submit" class="btn btn-default submit">送出</button>
+  <hr>
+
+  <div class="form-group">
+    <label for="receipt_head">收據抬頭 (此欄位空白將以報名者姓名開立收據)</label>
+    <input type="text" class="form-control" name="receipt_head" id="receipt_head" placeholder="收據抬頭">
+  </div>
+
+  <div class="form-group">
+    <label for="receipt_serial">統一編號 (收據抬頭開立公司行號請填統一編號)</label>
+    <input type="text" class="form-control" name="receipt_serial" id="receipt_serial" placeholder="統一編號">
+  </div>
+
+  <div class="form-group">
+    <label for="receipt_contact">聯絡人</label>
+    <input type="text" class="form-control" name="receipt_contact" id="receipt_contact" placeholder="聯絡人">
+  </div>
+
+  <div class="form-group">
+    <label for="receipt_phone">電話</label>
+    <input type="text" class="form-control" name="receipt_phone" id="receipt_phone" placeholder="電話">
+  </div>
+
+  <div class="form-group">
+    <label for="receipt_fax">傳真</label>
+    <input type="text" class="form-control" name="receipt_fax" id="receipt_fax" placeholder="傳真">
+  </div>
+
+  <hr>
+
+  <div class="form-group">
+    <label for="note">備註</label>
+    <textarea class="form-control" name="note" id="note" name="name" placeholder="備註" rows="4" cols="40"></textarea>
+  </div>
+
+  <hr>
+
+  <button type="submit" class="btn btn-default submit">確認報名</button>
+
   {!! csrf_field() !!}
+
 </form>
-<p>回到 <a href="#">活動網站</a> 晚點再報名</p>
 @endsection

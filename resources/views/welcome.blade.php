@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ticket System</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <title>{{ trans('ui.title') }}</title>
 
         <style>
             html, body {
                 height: 100%;
+
             }
 
             body {
@@ -15,8 +14,7 @@
                 padding: 0;
                 width: 100%;
                 display: table;
-                font-weight: 100;
-                font-family: 'Lato';
+                font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Jhenghei", sans-serif;
             }
 
             .container {
@@ -43,7 +41,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Ticket System<br/><a href="/register">Enter</a></div>
+                <div class="title">{{ trans('ui.title') }}<br/><a href="/register">Enter</a></div>
             </div>
         </div>
     </body>

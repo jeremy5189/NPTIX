@@ -73,7 +73,7 @@ return [
     ],
     'string'               => 'The :attribute must be a string.',
     'timezone'             => 'The :attribute must be a valid zone.',
-    'unique'               => 'The :attribute has already been taken.',
+    'unique'               => '此 :attribute 與現有紀錄重複，請更換後重試',
     'url'                  => 'The :attribute format is invalid.',
 
     /*

@@ -51,6 +51,18 @@ class RegisterController extends Controller
 
         $reg->token = 'Not Paid';
         $reg->seat = '-';
+
+        $receipt = [
+            'receipt_head'    => $request->input('receipt_head'),
+            'receipt_serial'  => $request->input('receipt_serial'),
+            'receipt_contact' => $request->input('receipt_contact'),
+            'receipt_phone'   => $request->input('receipt_phone'),
+            'receipt_fax'     => $request->input('receipt_fax')
+        ];
+
+        $reg->receipt = json_encode($receipt);
+        $reg->note    = $request->input('note');
+
         $msg = trans('ui.fail');
 
         if($reg->save()) {
@@ -59,7 +71,7 @@ class RegisterController extends Controller
             $msg = trans('ui.created');
 
             // Send confirm mail
-            Mail::send('emails.confirm', ['user' => $reg], function ($m) use ($reg) {
+            Mail::send('emails.confirm', ['user' => $reg, 'receipt' => $receipt ], function ($m) use ($reg) {
                 $m->to($reg->email, $reg->name)->subject(trans('ui.title') . ' 確認信');
             });
         }
