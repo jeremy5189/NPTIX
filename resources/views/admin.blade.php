@@ -31,14 +31,13 @@
             <th>#</th>
 
             <th>姓名</th>
-            <th>
-                序號
-            </th>
+
             <th>信箱</th>
             <th>手機</th>
             <th>單位</th>
             <th>職稱</th>
-            <th>餐點</th>
+            <th>會員</th>
+            <th>葷素</th>
             <th>座位</th>
 
             <th>
@@ -55,11 +54,13 @@
         <tr>
             <td>{{ $row->id }}</td>
             <td>{{ $row->name }}</td>
-            <td>{{ substr($row->cell, -3) }}</td>
             <td>{{ $row->email }}</td>
             <td>{{ $row->cell }}</td>
             <td>{{ $row->unit }}</td>
             <td>{{ $row->title }}</td>
+            <td>
+                {{ $row->is_member }}
+            </td>
             <td>{{ $row->meal }}</td>
             <td>{{ $row->seat }}</td>
 
