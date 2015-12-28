@@ -62,6 +62,7 @@ class RegisterController extends Controller
 
         $reg->receipt   = json_encode($receipt);
         $reg->note      = json_encode($request->input('note'));
+        $reg->is_member = $request->input('is_member');
         $reg->lock_seat = 0;
 
         $msg = trans('ui.fail');

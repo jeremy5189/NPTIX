@@ -63,6 +63,14 @@ $(function(){
     <input type="text" class="form-control" name="title" id="title" placeholder="職稱">
   </div>
 
+  <div class="form-group">
+    <label for="is_member">是否為 APAA 會員*</label>
+    <select class="form-control" name="is_member" id="is_member" required="">
+        <option value="是">是</option>
+        <option value="否">否</option>
+    </select>
+  </div>
+  
   <hr>
 
   <div class="form-group">
