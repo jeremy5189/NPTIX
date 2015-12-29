@@ -104,6 +104,9 @@ class AdminController extends Controller
         Log::debug('Attempt to login');
         Log::debug($req->all());
 
+        Log::debug(env('username'));
+        Log::debug(env('password'));
+
         if( $req->input('username') == env('username') &&
             $req->input('password') == env('password') ) {
             Log::debug('login ok');
