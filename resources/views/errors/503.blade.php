@@ -3,18 +3,21 @@
     <head>
         <title>Be right back.</title>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <style>
             html, body {
                 height: 100%;
-
             }
+
             body {
                 margin: 0;
                 padding: 0;
                 width: 100%;
+                color: #B0BEC5;
                 display: table;
-                font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Jhenghei", sans-serif;
+                font-weight: 100;
+                font-family: 'Lato';
             }
 
             .container {
@@ -29,12 +32,8 @@
             }
 
             .title {
-                font-size: 96px;
-            }
-
-            a {
-                color: black;
-                text-decoration: none;
+                font-size: 72px;
+                margin-bottom: 40px;
             }
         </style>
     </head>
