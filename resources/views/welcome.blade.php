@@ -41,7 +41,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">{{ trans('ui.title') }}<br/><a href="/register">進入報名系統</a></div>
+                <div class="title">{{ trans('ui.title') }}<br/><a href="#">尚未開放報名</a></div>
             </div>
         </div>
     </body>
