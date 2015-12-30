@@ -42,7 +42,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">{{ trans('ui.title') }}<br/>
-                    <?php if( time() < 1451867400 ) { // 2016-01-04 00:30:00 (UTC+0) ?>
+                    <?php if( time() < env('START_TIME') ) { ?>
                         <a href="#">尚未開放報名</a>
                     <?php } else { ?>
                         <a href="/register">進入報名系統</a>
