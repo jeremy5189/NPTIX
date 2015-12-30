@@ -29,9 +29,13 @@
             }
 
             .title {
+                margin-top: 50px;
                 font-size: 60px;
             }
-
+            img {
+                margin-top: -10px;
+                margin-bottom: 50px;
+            }
             a {
                 color: black;
                 text-decoration: none;
@@ -48,6 +52,7 @@
                         <a href="/register">進入報名系統</a>
                     <?php } ?>
                 </div>
+                <a href="/upload/poster.png"><img src="/upload/poster.png" width="600" alt=""></a>
             </div>
         </div>
     </body>
