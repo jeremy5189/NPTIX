@@ -62,7 +62,7 @@ class SeatController extends Controller
             abort(404);
         } else if( $user->lock_seat == 1 ) {
             Log::debug('Lock seat forbidden');
-            abort(403);
+            abort(451);
         }
 
         return view('seat', [
@@ -136,7 +136,7 @@ class SeatController extends Controller
         }
         else if( $person->lock_seat == 1 ) {
             Log::debug('Lock seat forbidden');
-            abort(403);
+            abort(451);
         }
         else {
             Log::debug('Token error');

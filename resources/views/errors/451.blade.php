@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Not Found</title>
+        <title>Unavailable For Legal Reasons</title>
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Error 404<br/>Not found</div>
+                <div class="title">Error 451<br/>Unavailable for legal reasons</div>
             </div>
         </div>
     </body>

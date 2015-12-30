@@ -29,7 +29,7 @@
             }
 
             .title {
-                font-size: 96px;
+                font-size: 60px;
             }
 
             a {

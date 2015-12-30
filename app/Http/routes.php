@@ -31,3 +31,10 @@ Route::get('/admin/unlock', 'AdminController@unlock');
 
 Route::get('/seat/{token}', 'SeatController@show');
 Route::get('/seat/{token}/{seat}', 'SeatController@select');
+
+Route::get('/coffee', function() { abort(418); });
+Route::get('/418', function() { abort(418); });
+Route::get('/451', function() { abort(451); });
+Route::get('/404', function() { abort(404); });
+Route::get('/403', function() { abort(403); });
+Route::get('/503', function() { abort(503); });
