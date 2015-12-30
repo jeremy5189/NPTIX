@@ -29,7 +29,7 @@
             }
 
             .title {
-                font-size: 96px;
+                font-size: 60px;
             }
 
             a {
@@ -41,7 +41,13 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">{{ trans('ui.title') }}<br/><a href="#">尚未開放報名</a></div>
+                <div class="title">{{ trans('ui.title') }}<br/>
+                    <?php if( time() < 1451867400 ) { // 2016-01-04 00:30:00 (UTC+0) ?>
+                        <a href="#">尚未開放報名</a>
+                    <?php } else { ?>
+                        <a href="/register">進入報名系統</a>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     </body>
