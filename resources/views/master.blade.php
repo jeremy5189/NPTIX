@@ -51,7 +51,7 @@
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -91,7 +91,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">&copy; 2015 <a href="patricks.tw">Jeremy Yen</a>. All Rights Reserved.</p>
+        <p class="text-muted">&copy; 2015 - 2016 <a target="_blank" href="http://patricks.tw/about">Jeremy Yen</a>.</p>
       </div>
     </footer>
 
