@@ -28,6 +28,7 @@ Route::get('/admin/destroy/{id}', 'AdminController@destroy');
 
 Route::get('/admin/lock', 'AdminController@lock');
 Route::get('/admin/unlock', 'AdminController@unlock');
+Route::get('/admin/seats', 'AdminController@seats');
 
 Route::get('/seat/{token}', 'SeatController@show');
 Route::get('/seat/{token}/{seat}', 'SeatController@select');

@@ -21,7 +21,7 @@
   <p class="pull-right contr" >
       <a href="/admin/lock" class="btn btn-danger btn-xs" title="禁止所有參加者選位">鎖定選位系統</a>
       <a href="/admin/unlock" class="btn btn-primary btn-xs" title="允許所有參加者自由選位">允許自由選位</a>
-
+      <a href="/admin/seats" class="btn btn-default btn-xs" title="">顯示姓名座位表</a>
   </p>
   <h1>管理參加者</h1>
 </div>
