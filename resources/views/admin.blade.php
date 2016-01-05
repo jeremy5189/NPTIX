@@ -143,7 +143,7 @@ $(function(){
             str += map[index] + ': ' + obj[index] + "\n";
         }
 
-        str += "\n備註：" + $(this).data('note');
+        str += "\n備註：" + unescape(JSON.parse($(this).data('note')));
 
         alert(str);
     });
