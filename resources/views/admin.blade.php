@@ -76,15 +76,15 @@
             </td>
             <td>{{ $row->created_at }}</td>
             <td>
-                <a href="#" data-name="{{ $row->name }}" data-note="{{ $row->note }}" data-id="{{ $row->id }}" data-json="{{ $row->receipt }}" class="btn btn-xs btn-default display-receipt">收據資料</a>
+                <a href="javascript:void(0);" data-name="{{ $row->name }}" data-note="{{ $row->note }}" data-id="{{ $row->id }}" data-json="{{ $row->receipt }}" class="btn btn-xs btn-default display-receipt">收據資料</a>
                 @if ( $row->token != 'Not Paid' )
                     <a href="/admin/cancel/{{ $row->id }}" class="btn btn-xs btn-warning">取消付款</a>
                 @else
-                    <a href="#" data-href="/admin/confirm/{{ $row->id }}" class="btn btn-xs btn-success confirm">確認付款</a>
+                    <a href="javascript:void(0);" data-href="/admin/confirm/{{ $row->id }}" class="btn btn-xs btn-success confirm">確認付款</a>
                 @endif
                 <br>
                 <a href="/seat/{{ $row->token }}" class="btn btn-xs btn-info">變更座位</a>
-                <a href="#" data-href="/admin/destroy/{{ $row->id }}" class="btn btn-xs btn-danger delete">刪除紀錄</a>
+                <a href="javascript:void(0);" data-href="/admin/destroy/{{ $row->id }}" class="btn btn-xs btn-danger delete">刪除紀錄</a>
             </td>
         </tr>
         @endforeach
