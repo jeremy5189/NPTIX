@@ -14,7 +14,7 @@
         margin-top: 25px;
     }
     #table_wrapper {
-        margin-bottom: 50px;
+        margin-bottom: 100px;
     }
 </style>
 @endsection
