@@ -13,6 +13,9 @@
     .contr {
         margin-top: 25px;
     }
+    #table_wrapper {
+        margin-bottom: 50px;
+    }
 </style>
 @endsection
 
