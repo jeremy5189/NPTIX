@@ -33,6 +33,8 @@ Route::get('/admin/seats', 'AdminController@seats');
 Route::get('/seat/{token}', 'SeatController@show');
 Route::get('/seat/{token}/{seat}', 'SeatController@select');
 
+Route::get('/backup/get', 'BackupController@get');
+
 Route::get('/coffee', function() { abort(418); });
 Route::get('/418', function() { abort(418); });
 Route::get('/451', function() { abort(451); });
