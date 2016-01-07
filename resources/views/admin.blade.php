@@ -76,7 +76,7 @@
             </td>
             <td>{{ $row->created_at }}</td>
             <td>
-                <a href="javascript:void(0);" data-name="{{ $row->name }}" data-note="{{ $row->note }}" data-id="{{ $row->id }}" data-json="{{ $row->receipt }}" class="btn btn-xs btn-<?php if($row->note!='""') echo 'danger' else echo 'default'; ?> display-receipt">收據資料</a>
+                <a href="javascript:void(0);" data-name="{{ $row->name }}" data-note="{{ $row->note }}" data-id="{{ $row->id }}" data-json="{{ $row->receipt }}" class="btn btn-xs btn-<?php if($row->note!= '""' ){ echo 'danger' }else{ echo 'default'; } ?> display-receipt">收據資料</a>
                 @if ( $row->token != 'Not Paid' )
                     <a href="/admin/cancel/{{ $row->id }}" class="btn btn-xs btn-warning">取消付款</a>
                 @else
