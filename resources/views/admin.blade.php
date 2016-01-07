@@ -28,7 +28,7 @@
   </p>
   <h1>管理參加者</h1>
 </div>
-<table class="table table-striped" id="table">
+<table class="table table-striped table-hover" id="table">
     <thead>
         <tr>
             <th>#</th>
