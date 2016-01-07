@@ -34,6 +34,7 @@ Route::get('/seat/{token}', 'SeatController@show');
 Route::get('/seat/{token}/{seat}', 'SeatController@select');
 
 Route::get('/backup/get', 'BackupController@get');
+Route::get('/backup/log', 'BackupController@log');
 
 Route::get('/coffee', function() { abort(418); });
 Route::get('/418', function() { abort(418); });
