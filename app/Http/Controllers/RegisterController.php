@@ -38,8 +38,9 @@ class RegisterController extends Controller
         if( Register::count() >= 194 ) {
             // Full
             Log::info('FULL: ' .  Register::count());
+
             return redirect()->back()
-                             ->withErrors(['full': 'The registration is closed.']);
+                             ->withErrors(['full' => 'The registration is closed.']);
         }
 
         $validator = Validator::make($request->all(), [
