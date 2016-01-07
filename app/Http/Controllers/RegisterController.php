@@ -35,7 +35,7 @@ class RegisterController extends Controller
         Log::debug('User attempt to register');
         Log::debug($request->all());
 
-        if( Register::count() >= 194 ) {
+        if( Register::count() >= 238 ) {
             // Full
             Log::info('FULL: ' .  Register::count());
 
