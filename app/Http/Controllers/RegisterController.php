@@ -19,7 +19,9 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('register');
+        return view('register', [
+            'count' => Register::count()
+        ]);
     }
 
     /**
@@ -32,6 +34,13 @@ class RegisterController extends Controller
     {
         Log::debug('User attempt to register');
         Log::debug($request->all());
+
+        if( Register::count() >= 194 ) {
+            // Full
+            Log::info('FULL: ' .  Register::count());
+            return redirect()->back()
+                             ->withErrors(['full': 'The registration is closed.']);
+        }
 
         $validator = Validator::make($request->all(), [
             'name'  => 'required',

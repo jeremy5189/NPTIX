@@ -22,6 +22,11 @@ $(function(){
         {{ trans('ui.'.$errors->keys()[0]) }}: {{ $errors->first() }}
     </div>
 @endif
+@if($count >= 194)
+    <div class="alert alert-danger">
+        報名已經額滿，請洽主辦單位，謝謝
+    </div>
+@endif
 
 <form method="post" action="/register" id="form">
 
@@ -70,7 +75,7 @@ $(function(){
         <option value="否">否</option>
     </select>
   </div>
-  
+
   <hr>
 
   <div class="form-group">
