@@ -52,7 +52,7 @@
                         <a href="/register">進入報名系統</a>
                     <?php } ?>
                 </div>
-                <a href="/upload/poster.png"><img src="/upload/poster.png" width="600" alt=""></a>
+                <a href="/upload/poster.jpg"><img src="/upload/poster.jpg" width="600" alt=""></a>
             </div>
         </div>
     </body>
