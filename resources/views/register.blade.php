@@ -23,11 +23,11 @@ $(function(){
     </div>
 @endif
 
-@if($count >= 238)
+@if($count >= intval(env('REG_LIMIT', 238)))
     <div class="alert alert-danger">
         報名已經額滿，請洽主辦單位，謝謝
     </div>
-@endif
+@else
 
 <form method="post" action="/register" id="form">
 
@@ -118,4 +118,5 @@ $(function(){
   {!! csrf_field() !!}
 
 </form>
+@endif
 @endsection
