@@ -126,7 +126,8 @@ class AdminController extends Controller
         Log::debug('Admin view seat table');
 
         return view('seat-admin', [
-            'data'    => Register::where('seat', '!=', '-')->orderBy('seat')->get()
+            'data'    => Register::where('seat', '!=', '-')->orderBy('seat')->get(),
+            'count'   => Register::count()
         ]);
 
     }

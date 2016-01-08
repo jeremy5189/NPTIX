@@ -2,12 +2,7 @@
 
 @section('content')
 <style media="screen">
-    .warning {
-        color: gray;
-    }
-    .success {
-        font-weight: 800;
-    }
+
 </style>
 
 <div class="page-header">
@@ -138,6 +133,9 @@ $row_class = ['available', 'danger', 'available', 'danger', 'available'];
     </tr>
 
 </table>
+<div id="note" class="pull-right">
+    總共：238 位 / 已報名：{{ $count }} 人 / 已選位：<?php count($data); ?> 人
+</div>
 <script type="text/javascript">
 $(function(){
 
