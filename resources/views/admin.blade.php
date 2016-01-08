@@ -34,7 +34,6 @@
             <th>#</th>
 
             <th>姓名</th>
-
             <th>信箱</th>
             <th>手機</th>
             <th>單位</th>
@@ -43,13 +42,12 @@
             <th>葷素</th>
             <th>座位</th>
 
-            <th>
-                鎖定
-            </th>
+            <th>鎖定</th>
             <th>註冊時間</th>
             <th>
-                操作
+                抬頭統編
             </th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -76,7 +74,19 @@
             </td>
             <td>{{ $row->created_at }}</td>
             <td>
-                <a href="javascript:void(0);" data-name="{{ $row->name }}" data-note="{{ $row->note }}" data-id="{{ $row->id }}" data-json="{{ $row->receipt }}" class="btn btn-xs btn-<?php if( $row->note != '""' ){ echo 'danger'; }else{ echo 'default'; } ?> display-receipt">收據資料</a>
+                <!-- 收據 -->
+                <?php
+                $obj = json_decode($row->receipt);
+                if( $obj->receipt_head != '' ) {
+                    echo $obj->receipt_head . '<br/>' .
+                         $obj->receipt_serial;
+                } else {
+                    echo '-';
+                }
+                ?>
+            </td>
+            <td>
+                <a href="javascript:void(0);" data-name="{{ $row->name }}" data-note="{{ $row->note }}" data-id="{{ $row->id }}" data-json="{{ $row->receipt }}" class="btn btn-xs btn-<?php if( $row->note != '""' ){ echo 'danger'; }else{ echo 'default'; } ?> display-receipt">收據備註</a>
                 @if ( $row->token != 'Not Paid' )
                     <a href="/admin/cancel/{{ $row->id }}" class="btn btn-xs btn-warning">取消付款</a>
                 @else
