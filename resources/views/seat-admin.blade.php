@@ -2,7 +2,9 @@
 
 @section('content')
 <style media="screen">
-
+#note {
+    margin-bottom: 50px;
+}
 </style>
 
 <div class="page-header">
