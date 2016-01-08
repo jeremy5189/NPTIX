@@ -136,7 +136,7 @@ $row_class = ['available', 'danger', 'available', 'danger', 'available'];
 
 </table>
 <div id="note" class="pull-right">
-    總共：238 位 / 已報名：{{ $count }} 人 / 已選位：<?php count($data); ?> 人
+    總共：238 位 / 已報名：{{ $count }} 人 / 已選位：{{ $rcount }} 人
 </div>
 <script type="text/javascript">
 $(function(){
