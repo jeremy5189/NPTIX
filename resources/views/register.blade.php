@@ -23,11 +23,17 @@ $(function(){
     </div>
 @endif
 
-@if( $count >= intval(env('REG_LIMIT', 238)) || env('ALLOW_REG') == 'NO' )
+@if( ($count >= intval(env('REG_LIMIT', 238)) || env('ALLOW_REG') == 'NO') && Session::get('login') != 'yes' )
     <div class="alert alert-danger">
         報名已經額滿，請洽主辦單位，謝謝
     </div>
 @else
+
+    @if( Session::get('login') == 'yes' )
+        <div class="alert alert-warning">
+            以管理員身份登入，允許 Bypass 報名限制
+        </div>
+    @endif
 
 <form method="post" action="/register" id="form">
 
