@@ -23,7 +23,7 @@ $(function(){
     </div>
 @endif
 
-@if($count >= intval(env('REG_LIMIT', 238)))
+@if( $count >= intval(env('REG_LIMIT', 238)) || env('ALLOW_REG') == 'NO' )
     <div class="alert alert-danger">
         報名已經額滿，請洽主辦單位，謝謝
     </div>
