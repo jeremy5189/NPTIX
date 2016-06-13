@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ trans('ui.title') }}</title>
+        <title>{{ env('SYS_TITLE') }}</title>
         <meta charset="utf-8">
 
         <style>
@@ -45,7 +45,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">{{ trans('ui.title') }}<br/>
+                <div class="title">{{ env('SYS_TITLE') }}<br/>
                     <?php if( time() < env('START_TIME') ) { ?>
                         <a href="#">尚未開放報名</a>
                     <?php } else { ?>

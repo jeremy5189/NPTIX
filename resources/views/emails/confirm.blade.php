@@ -37,4 +37,4 @@
 如果您有任何問題，請直接聯繫主辦單位（patentlaw2016@gmail.com），不要直接回覆本郵件，謝謝<br/>
 <br/>
 <br/>
-{{ trans('ui.title') }}
+{{ env('SYS_TITLE') }}

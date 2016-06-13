@@ -82,7 +82,7 @@ class AdminController extends Controller
 
             // Send confirm mail
             Mail::send('emails.select-seat', ['name' => $person->name, 'url' => url() . '/seat/' . $person->token], function ($m) use ($person) {
-                $m->to($person->email, $person->name)->subject(trans('ui.title') . ' 選位通知');
+                $m->to($person->email, $person->name)->subject(env('SYS_TITLE') . ' 選位通知');
             });
         }
 
